@@ -62,6 +62,6 @@ public class MainActivity extends AppCompatActivity {
             result=result/l;
         }
         outputtip.setText("Tip: $"+tiptotal+"");
-        outputbill.setText("You owe: $"+result+"");
+        outputbill.setText("You owe: $"+String.format("%.2f", result));
     }
 }

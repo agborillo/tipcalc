@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.tipcalc.MainActivity">
+    tools:context="com.example.android.tipcalc.MainActivity"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/title"
@@ -68,26 +69,28 @@
         />
     <SeekBar
         android:id="@+id/seekbar"
-        android:layout_width="200sp"
+        android:layout_width="1000dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/percent"
         android:layout_centerHorizontal="true"
+        android:progressBackgroundTint="#000000"
+        android:thumb="@drawable/small"
         />
     <TextView
         android:id="@+id/tipout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="Tip: "
         android:textSize="20sp"
-        android:gravity="center"
+        android:gravity=""
         android:layout_below="@id/finalButton" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/totalbill"
-        android:text=""
+        android:text="You owe: "
         android:textSize="30sp"
-        android:gravity="center"
+        android:gravity=""
         android:layout_below="@id/tipout"
         />
     <RadioGroup
