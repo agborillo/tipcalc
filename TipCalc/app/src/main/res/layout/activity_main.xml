@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.tipcalc.MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tipcalc"
+        android:gravity="center"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:id="@+id/bill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/title"
+        android:gravity="left"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inputBill"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/inputbill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="numberDecimal"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/diners"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/bill"
+        android:gravity="left"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/diners"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/diners2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:inputType="numberDecimal"
+            android:textSize="20dp"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/percent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        android:layout_below="@id/diners"
+        android:gravity="center"
+        />
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/percent"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/tipout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_below="@id/finalButton" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/totalbill"
+        android:text=""
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_below="@id/tipout"
+        />
+    <RadioGroup
+        android:id="@+id/billdivide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekbar"
+        android:gravity="center">
+        <RadioButton
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/divide"
+            android:gravity="center"/>
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/finalButton"
+        android:text="Finish"
+        android:layout_below="@id/billdivide"
+        android:layout_centerHorizontal="true"
+        android:onClick="buttonPressed"/>
+
+
+
+</RelativeLayout>

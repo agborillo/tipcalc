@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TipCalc</string>
+    <string name="inputBill">Bill:</string>
+    <string name="diners">Number of diners:</string>
+    <string name="tipperc">Tip Percent</string>
+    <string name="output">Tip:</string>
+    <string name="totalbill">Total Bill:</string>
+    <string name="divide">Divide Bill?</string>
+    <string name="tipcalc">TIP CALCULATOR</string>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">converter</string>
+    <string name="title">Temp converter</string>
+    <string name="input_label">Temp:</string>
+    <string name="button_label">Convert</string>
+    <string name="radio_ftoc">Fahrenheit To Celsius</string>
+    <string name="radio_ctof">Celsius to Fahrenheit</string>
+</resources>
