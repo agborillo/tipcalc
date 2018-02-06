@@ -74,7 +74,6 @@
         android:layout_below="@id/percent"
         android:layout_centerHorizontal="true"
         android:progressBackgroundTint="#000000"
-        android:thumb="@drawable/small"
         />
     <TextView
         android:id="@+id/tipout"
@@ -93,26 +92,22 @@
         android:gravity=""
         android:layout_below="@id/tipout"
         />
-    <RadioGroup
-        android:id="@+id/billdivide"
-        android:layout_width="match_parent"
+
+    <CheckBox
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/divide"
         android:layout_below="@id/seekbar"
-        android:gravity="center">
-        <RadioButton
-            android:id="@+id/check"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/divide"
-            android:gravity="center"/>
-    </RadioGroup>
+        android:gravity="center"
+        android:text="Divide bill?"
+        />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/finalButton"
         android:text="Finish"
-        android:layout_below="@id/billdivide"
+        android:layout_below="@id/divide"
         android:layout_centerHorizontal="true"
         android:onClick="buttonPressed"/>
 

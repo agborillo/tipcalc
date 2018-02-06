@@ -3,6 +3,7 @@ package com.example.android.tipcalc;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText diners;
     private TextView outputtip;
     private TextView outputbill;
-    private RadioButton divide;
+    private CheckBox divide;
     private SeekBar tipPercent;
     private TextView showTip;
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         diners = findViewById(R.id.diners2);
         outputtip =  findViewById(R.id.tipout);
         outputbill = findViewById(R.id.totalbill);
-        divide = findViewById(R.id.check);
+        divide = findViewById(R.id.divide);
         tipPercent = findViewById((R.id.seekbar));
         showTip = findViewById(R.id.percent);
         tipPercent.setOnSeekBarChangeListener(
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         if(divide.isChecked()){
             result=result/l;
         }
-        outputtip.setText("Tip: $"+tiptotal+"");
+        outputtip.setText("Tip: $"+String.format("%.2f", tiptotal)+"");
         outputbill.setText("You owe: $"+String.format("%.2f", result));
     }
 }
