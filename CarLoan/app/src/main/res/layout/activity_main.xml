@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.carloan.MainActivity"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:id="@+id/carcostlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carcost"
+            android:text="Car Cost:"
+            android:textSize="15dp"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/costinput"
+            android:ems="10"
+            android:textSize="15dp"
+            android:inputType="numberDecimal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/downlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carcostlayout"
+        android:gravity="left"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/downpayment"
+            android:text="Down Payment:"
+            android:textSize="15dp"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/downinput"
+            android:ems="10"
+            android:textSize="15dp"
+            android:inputType="numberDecimal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/aprlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/downlayout"
+        android:gravity="left"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/apr"
+            android:text="APR:"
+            android:textSize="15dp"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/aprinput"
+            android:ems="10"
+            android:textSize="15dp"
+            android:inputType="numberDecimal"/>
+    </LinearLayout>
+    
+    <RadioGroup
+        android:id="@+id/buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aprlayout">
+        <RadioButton
+            android:id="@+id/loan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loan"
+            />
+        <RadioButton
+            android:id="@+id/lease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lease"
+            />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/months"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Length of Loan: 0 months"
+        android:layout_below="@id/buttons"
+        android:gravity="center"
+        android:textSize="10dp"
+        />
+    <SeekBar
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/seek"
+        android:layout_below="@id/months"
+        android:layout_centerHorizontal="true"
+        android:max="61"
+        android:min="1"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/paymentout"
+        android:layout_below="@id/button"
+        android:text="Monthly Payment:"
+        android:textSize="20sp"
+        />
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/outpay"
+        android:layout_below="@id/paymentout"
+        android:textSize="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:text="Calculate"
+        android:layout_below="@id/seek"
+        android:gravity="center"
+        android:onClick="buttonPressed" />
+</RelativeLayout>
