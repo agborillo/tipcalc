@@ -21,13 +21,17 @@
             android:text="Car Cost:"
             android:textSize="15dp"
             />
+
         <EditText
+            android:id="@+id/costinput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/costinput"
             android:ems="10"
+            android:inputType="numberDecimal"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
             android:textSize="15dp"
-            android:inputType="numberDecimal"/>
+            android:imeOptions="flagNoExtractUi"/>
     </LinearLayout>
 
     <LinearLayout
@@ -50,7 +54,8 @@
             android:id="@+id/downinput"
             android:ems="10"
             android:textSize="15dp"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:imeOptions="flagNoExtractUi"/>
     </LinearLayout>
 
     <LinearLayout
@@ -73,7 +78,8 @@
             android:id="@+id/aprinput"
             android:ems="10"
             android:textSize="15dp"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:imeOptions="flagNoExtractUi"/>
     </LinearLayout>
     
     <RadioGroup
@@ -115,15 +121,25 @@
         android:min="1"
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/paymentout"
-        android:layout_below="@id/button"
-        android:text="Monthly Payment:"
-        android:textSize="20sp"
-        />
 
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seek"
+        android:id="@+id/pay"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/paymentout"
+            android:text="Monthly Payment:"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
 
 
     <Button
@@ -133,5 +149,6 @@
         android:text="Calculate"
         android:layout_below="@id/seek"
         android:gravity="center"
-        android:onClick="buttonPressed" />
+        android:onClick="buttonPressed"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

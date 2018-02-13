@@ -2,9 +2,11 @@ package com.example.android.carloan;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView payment;
     private TextView months;
     private EditText payout;
+    private RadioGroup buttons;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         seekBar = findViewById(R.id.seek);
         payment = findViewById(R.id.paymentout);
         months = findViewById(R.id.months);
-        payout = findViewById(R.id.outpay);
+      //  payout = findViewById(R.id.outpay);
+       buttons = findViewById(R.id.buttons);
         seekBar.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
@@ -51,8 +55,47 @@ public class MainActivity extends AppCompatActivity {
                 }
 
         );
+
+        apr.setOnEditorActionListener(
+                new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                        buttonPressed(textView);
+                        return false;
+                    }
+                }
+        );
+
+        buttons.setOnCheckedChangeListener(
+
+                new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                            buttonPressed(radioGroup);
+                    }
+                }
+        );
+
+
+
+
+
+        if(savedInstanceState != null){
+            cost.setText(savedInstanceState.getString( "carcost"));
+            downpayment.setText(savedInstanceState.getString( "downpay"));
+            apr.setText(savedInstanceState.getString( "apr"));
+        }
     }
 
+
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString("carcost", cost.getText().toString() );
+        savedInstanceState.putString("downpay", downpayment.getText().toString() );
+        savedInstanceState.putString("apr", apr.getText().toString() );
+    }
 
 
     public void buttonPressed(View v){
