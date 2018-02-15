@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             cost.setText(savedInstanceState.getString( "carcost"));
             downpayment.setText(savedInstanceState.getString( "downpay"));
             apr.setText(savedInstanceState.getString( "apr"));
+            payment.setText(savedInstanceState.getString( "total"));
         }
     }
     @Override
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putString("carcost", cost.getText().toString() );
         savedInstanceState.putString("downpay", downpayment.getText().toString() );
         savedInstanceState.putString("apr", apr.getText().toString() );
+        savedInstanceState.putString("total", payment.getText().toString());
     }
     public void buttonPressed(View v){
             double months = seekBar.getProgress();
