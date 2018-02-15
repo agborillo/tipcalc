@@ -41,21 +41,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                         months.setText("Length of Loan: " + i + " months");
+                        buttonPressed(seekBar);
                     }
-
                     @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
+                    public void onStartTrackingTouch(SeekBar seekBar){
 
                     }
-
                     @Override
                     public void onStopTrackingTouch(SeekBar seekBar) {
 
                     }
                 }
-
         );
-
         apr.setOnEditorActionListener(
                 new TextView.OnEditorActionListener() {
                     @Override
@@ -65,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-
         buttons.setOnCheckedChangeListener(
 
                 new RadioGroup.OnCheckedChangeListener() {
@@ -75,20 +71,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-
-
-
-
-
         if(savedInstanceState != null){
             cost.setText(savedInstanceState.getString( "carcost"));
             downpayment.setText(savedInstanceState.getString( "downpay"));
             apr.setText(savedInstanceState.getString( "apr"));
         }
     }
-
-
-
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
         super.onSaveInstanceState(savedInstanceState);
@@ -96,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putString("downpay", downpayment.getText().toString() );
         savedInstanceState.putString("apr", apr.getText().toString() );
     }
-
-
     public void buttonPressed(View v){
             double months = seekBar.getProgress();
             String carcost =  cost.getText().toString();

@@ -138,17 +138,10 @@
             android:id="@+id/paymentout"
             android:text="Monthly Payment:"
             android:textSize="20sp"
+            android:layout_margin="10dp"
             />
     </LinearLayout>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:text="Calculate"
-        android:layout_below="@id/seek"
-        android:gravity="center"
-        android:onClick="buttonPressed"
-        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
