@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.Random;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     int z=2;
     int speed=500;
     int click = 0;
+    int place1 = 0;
+    int place2 = 1;
+    int place3 = 2;
 
 
     @Override
@@ -104,15 +108,33 @@ public class MainActivity extends AppCompatActivity {
         Drawable d3 = getResources().getDrawable(R.drawable.strawberry);
         imageView3.setImageDrawable(d3);
         grid.addView(imageView3);
+        if(savedInstanceState != null){
+            points.setText(savedInstanceState.getString( "points"));
+            total = savedInstanceState.getInt("total");
+            //imageView.setImageDrawable(f);
+            //imageView2.setImageDrawable(f2);
+            //imageView3.setImageDrawable(f3);
+
+        }
+    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString("points", points.getText().toString() );
+        savedInstanceState.putInt("total", total);
+        savedInstanceState.putInt("image1", R.drawable.cherry);
+        savedInstanceState.putInt("image2", R.drawable.strawberry);
+        savedInstanceState.putInt("image3", R.drawable.grape);
+        savedInstanceState.putInt("image4", R.drawable.pear);
+
     }
 
 
 
 
+
     public void buttonPressed(View v){
-        int place1 = 0;
-        int place2 = 1;
-        int place3 = 2;
+
 
 
         if(start.getText().equals("Start")){
@@ -136,57 +158,64 @@ public class MainActivity extends AppCompatActivity {
             Drawable f = q.getDrawable();
             Drawable f2 = q2.getDrawable();
             Drawable f3 = q3.getDrawable();
-            if(f.equals(d) || f2.equals(d) || f3.equals(d)) {
-                total += 10;
+            if(f.equals(d) && f2.equals(d) && f3.equals(d)){
+                total +=80;
                 points.setText("Points: "+ total);
+                Toast.makeText(this, "+80 Points!", Toast.LENGTH_SHORT).show();
             }
             else if((f.equals(d) && f2.equals(d))){
                 total +=20;
                 points.setText("Points: "+ total);
+                Toast.makeText(this, "+20 Points!", Toast.LENGTH_SHORT).show();
             }
             else if((f2.equals(d) && f3.equals(d))){
                 total +=20;
                 points.setText("Points: "+ total);
+                Toast.makeText(this, "+20 Points!", Toast.LENGTH_SHORT).show();
             }
             else if(f.equals(d) && f3.equals(d)){
                 total +=20;
                 points.setText("Points: "+ total);
-            }
-            else if(f.equals(d) && f2.equals(d) && f3.equals(d)){
-                total +=80;
-                points.setText("Points: "+ total);
+                Toast.makeText(this, "+20 Points!", Toast.LENGTH_SHORT).show();
             }
             else if(f.equals(d2) && f2.equals(d2) && f3.equals(d2)){
                 total += 50;
                 points.setText("Points: "+ total);
+                Toast.makeText(this, "+50 Points!", Toast.LENGTH_SHORT).show();
             }
             else if(f.equals(d4) && f2.equals(d4) && f3.equals(d4)){
                 total +=50;
                 points.setText("Points: "+ total);
+                Toast.makeText(this, "+50 Points!", Toast.LENGTH_SHORT).show();
             }
-            else if(f.equals(d3) && f2.equals(d3) && f3.equals(d3)){
-                total +=50;
+            else if(f.equals(d3) && f2.equals(d3) && f3.equals(d3)) {
+                total += 50;
+                points.setText("Points: " + total);
+                Toast.makeText(this, "+50 Points!", Toast.LENGTH_SHORT).show();
+            }
+            else if(f.equals(d) || f2.equals(d) || f3.equals(d)) {
+                total += 10;
                 points.setText("Points: "+ total);
-
+                Toast.makeText(this, "+10 Points!", Toast.LENGTH_SHORT).show();
             }
+
             start.setText("Start");
+            }
+
 
 
         }
-    }
+
+
 
     public void buttonPressed2(View v) {
+
         Intent i = new Intent(this, ColorActivity.class);
-        startActivityForResult(i, 1);
+        i.putExtra("Points", total);
+        startActivity(i);
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        int color = data.getIntExtra("COLOR", 0xFFFF0000);
-        layout.setBackgroundColor(color);
-
-    }
 
     private class Update implements Runnable {
 

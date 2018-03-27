@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /**
  * Created by android on 3/20/18.
@@ -13,29 +15,24 @@ public class ColorActivity extends AppCompatActivity {
 
     private int color;
     private RadioGroup group;
+    private TextView points2;
+    int total;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color);
-        group = findViewById(R.id.group);
-        color = 0xFF000000;
 
-        group.setOnCheckedChangeListener(
-                new RadioGroup.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                        switch (i){
-                            case R.id.whitebutton:
-                                color = 0xFFFFFFFF; break;
-                            case R.id.cyanbutton:
-                                color = 0xFF00FFFF; break;
-                            case R.id.yellowbutton:
-                                color = 0xFFFFFF00; break;
-                        }
-                    }
-                }
-        );
+        color = 0xFFFF0000;
+        points2 = findViewById(R.id.points2);
+        int total  = getIntent().getIntExtra("Points", 0);
+        points2.setText("Points: " + total);
+
+
+
+
+
 
     }
     @Override

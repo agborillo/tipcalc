@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Points: "
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:layout_below="@id/rule" />
 
 <TextView
@@ -17,6 +17,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Rules: Any Strawberries +10, 3 of a kind +50"
-    android:textSize="60dp"/>
+    android:textSize="50dp"/>
 
 </RelativeLayout>
