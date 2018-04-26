@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
         ImageView imageView = (ImageView) getLayoutInflater().inflate(R.layout.imagevie, grid, false);
         Drawable d = getResources().getDrawable(R.drawable.pear);
         imageView.setImageDrawable(d);
@@ -108,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
         Drawable d3 = getResources().getDrawable(R.drawable.strawberry);
         imageView3.setImageDrawable(d3);
         grid.addView(imageView3);
+
+
         if(savedInstanceState != null){
             points.setText(savedInstanceState.getString( "points"));
             total = savedInstanceState.getInt("total");
