@@ -36,6 +36,7 @@
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         />
+
     <GridLayout
         android:id="@+id/grid"
         android:layout_above="@id/points"
@@ -47,7 +48,6 @@
         android:layout_centerHorizontal="true"
 >
     </GridLayout>
-
 
     <SeekBar
         android:id="@+id/bar"

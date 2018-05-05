@@ -16,12 +16,8 @@ import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.Random;
-
 public class MainActivity extends AppCompatActivity {
     private GridLayout grid;
-   // private ImageView one;
-    //private ImageView two;
-    //private ImageView three;
     private Button start;
     private Button rules;
     private SeekBar bar;
@@ -48,16 +44,11 @@ public class MainActivity extends AppCompatActivity {
     int place1 = 0;
     int place2 = 1;
     int place3 = 2;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //one = findViewById(R.id.one);
         grid = findViewById(R.id.grid);
-        //two = findViewById(R.id.two);
-        //three = findViewById(R.id.three);
         start = findViewById(R.id.start);
         rules = findViewById(R.id.rules);
         bar = findViewById(R.id.bar);
@@ -82,17 +73,12 @@ public class MainActivity extends AppCompatActivity {
                         else if(bar.getProgress()==2){
                             speed=0;
                         }
-
                     }
-
                     @Override
                     public void onStartTrackingTouch(SeekBar seekBar) {
-
                     }
-
                     @Override
                     public void onStopTrackingTouch(SeekBar seekBar) {
-
                     }
                 }
         );
@@ -110,14 +96,9 @@ public class MainActivity extends AppCompatActivity {
         imageView3.setImageDrawable(d3);
         grid.addView(imageView3);
 
-
         if(savedInstanceState != null){
             points.setText(savedInstanceState.getString( "points"));
             total = savedInstanceState.getInt("total");
-            //imageView.setImageDrawable(f);
-            //imageView2.setImageDrawable(f2);
-            //imageView3.setImageDrawable(f3);
-
         }
     }
     @Override
@@ -129,32 +110,19 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt("image2", R.drawable.strawberry);
         savedInstanceState.putInt("image3", R.drawable.grape);
         savedInstanceState.putInt("image4", R.drawable.pear);
-
     }
 
-
-
-
-
     public void buttonPressed(View v){
-
-
-
         if(start.getText().equals("Start")){
             d = getResources().getDrawable(R.drawable.strawberry);
             d2 = getResources().getDrawable(R.drawable.cherry);
             d3 = getResources().getDrawable(R.drawable.grape);
             d4 = getResources().getDrawable(R.drawable.pear);
-
             handler.postDelayed(update1, num1);
             start.setText("Stop");
-            //handler.postDelayed(update1, num2);
-            //handler.postDelayed(update1, num3);
-
         }
         else if(start.getText().equals("Stop")){
             handler.removeCallbacks(update1);
-
             ImageView q = (ImageView) grid.getChildAt(place1);
             ImageView q2 = (ImageView) grid.getChildAt(place2);
             ImageView q3 = (ImageView) grid.getChildAt(place3);
@@ -204,48 +172,27 @@ public class MainActivity extends AppCompatActivity {
 
             start.setText("Start");
             }
-
-
-
         }
-
-
-
     public void buttonPressed2(View v) {
-
         Intent i = new Intent(this, ColorActivity.class);
         i.putExtra("Points", total);
         startActivity(i);
-
     }
-
-
     private class Update implements Runnable {
-
         @Override
         public void run() {
             click++;
             if(click==4){
-                click = 1;
-            }
+                click = 1; }
             Random rand = new Random();
             num1= rand.nextInt((200)+speed);
             Random rand2 = new Random();
             num2= rand2.nextInt((200)+speed);
-            //handler.postDelayed(update1, num2);
             Random rand3 = new Random();
             num3= rand3.nextInt((200)+speed);
-            //handler.postDelayed(update1, num3);
-
             int place1 = 0;
             int place2 = 1;
             int place3 = 2;
-            //ImageView i = (ImageView) grid.getChildAt(place1);
-            //ImageView i2 = (ImageView) grid.getChildAt(place2);
-            //ImageView i3 = (ImageView) grid.getChildAt(place3);
-            //i.setImageDrawable(a[x]);
-            //i2.setImageDrawable(a[z]);
-            //i3.setImageDrawable(a[y]);
             Drawable[] a = new  Drawable[4];
             ImageView i = (ImageView) grid.getChildAt(place1);
             ImageView i2 = (ImageView) grid.getChildAt(place2);
@@ -256,33 +203,22 @@ public class MainActivity extends AppCompatActivity {
             a[3] = d4;
             if(click == 1){
                 i.setImageDrawable(a[x]);
-                handler.postDelayed(update1, num1);
-            }
-            //handler.postDelayed(update1, num1);
+                handler.postDelayed(update1, num1); }
             else if(click == 2){
                 i2.setImageDrawable(a[y]);
-                handler.postDelayed(update1, num2);
-            }
+                handler.postDelayed(update1, num2); }
             else if(click ==3){
                 i3.setImageDrawable(a[z]);
-                handler.postDelayed(update1, num3);
-            }
-
-            //handler.postDelayed(update1, num2);
-
-            // handler.postDelayed(update1, num3);
+                handler.postDelayed(update1, num3); }
             x++;
             y++;
             z++;
             if(x==4){
-                x=x-4;
-            }
+                x=x-4; }
             if(y==4){
-                y=y-4;
-            }
+                y=y-4; }
             if(z==4){
-                z=z-4;
-            }
+                z=z-4; }
 
         }
 

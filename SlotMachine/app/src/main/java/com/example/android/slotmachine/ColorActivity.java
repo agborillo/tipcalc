@@ -17,8 +17,6 @@ public class ColorActivity extends AppCompatActivity {
     private RadioGroup group;
     private TextView points2;
     int total;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +26,6 @@ public class ColorActivity extends AppCompatActivity {
         points2 = findViewById(R.id.points2);
         int total  = getIntent().getIntExtra("Points", 0);
         points2.setText("Points: " + total);
-
-
-
-
-
-
     }
     @Override
     public void onBackPressed(){

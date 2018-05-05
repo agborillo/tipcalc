@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.example.MainActivity"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/layout"
+    >
 
 <TextView
     android:layout_width="wrap_content"
@@ -13,37 +15,62 @@
     android:id="@+id/title"
     android:text="Win Big!"
     android:layout_centerVertical="true"
-    android:textSize="30dp" />
+    android:textSize="30dp"
+    android:layout_below="@id/group"/>
+
+    <TextView
+        android:id="@+id/house"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="House"
+        android:layout_below="@id/cards2"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/you"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cards"
+        android:text="You"
+        android:textSize="20dp"
+        />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bet"
+        android:id="@+id/textbet"
         android:text="Enter Bet:"
         android:textSize="25dp"
         android:layout_below="@id/money"/>
     <EditText
+        android:id="@+id/bet"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_toRightOf="@id/bet"
-        android:layout_below="@id/money"/>
+        android:layout_toRightOf="@id/textbet"
+        android:layout_below="@id/money"
+        android:inputType="numberDecimal"/>
     <Button
+        android:id="@+id/roll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:text="Roll IT"
         android:onClick="imagePressed"/>
     <RadioGroup
+        android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bet">
+        android:layout_below="@id/textbet">
         <RadioButton
+            android:id="@+id/under"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Under"
             android:textSize="20dp"/>
         <RadioButton
+            android:id="@+id/over"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Over"
@@ -55,25 +82,33 @@
     android:layout_width="65dp"
     android:layout_height="87dp"
     android:clickable="true"
-    android:onClick="imagePressed"
-    android:src="@drawable/cardback" />
+    android:src="@drawable/cardback"
+    />
+
 
     <ImageView
         android:id="@+id/cards2"
         android:layout_width="65dp"
         android:layout_height="87dp"
         android:clickable="true"
-        android:onClick="imagePressed"
         android:src="@drawable/cardback"
-        android:layout_toRightOf="@id/cards"
         android:layout_centerHorizontal="true"
+
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/money"
         android:text="Points: 100"
-        android:layout_below="@id/cards"
+        android:layout_below="@id/you"
         android:textSize="30dp"/>
+
+    <Button
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/roll"
+        android:text="Menu"
+        android:onClick="buttonPressed"/>
 
 </RelativeLayout>

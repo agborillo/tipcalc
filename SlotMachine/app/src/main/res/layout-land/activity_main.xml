@@ -7,9 +7,6 @@
     tools:context="com.example.android.slotmachine.MainActivity"
     android:background="#ff5f0f"
     android:id="@+id/layout">
-
-
-
     <Button
         android:id="@+id/start"
         android:layout_width="wrap_content"

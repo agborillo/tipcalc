@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/menu">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="RULES:
+     Bet your points either guessing under or over on the cards. Win: Double your points bet Lose: Lose your points bet Tie: Get your points bet back
+
+
+                                    SPEND YOUR POINTS BELOW!!!"/>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/text1"
+    android:text="Points: "
+    android:id="@+id/text2"
+    android:textSize="30dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text2"
+        android:text="Blue"
+        android:id="@+id/blue"
+        android:onClick="bluePressed"/>
+    <TextView
+        android:id="@+id/bluetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text2"
+        android:layout_toRightOf="@id/blue"
+        android:text="$100"
+        android:textSize="30dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bluetext"
+        android:text="Red"
+        android:id="@+id/red"
+        android:onClick="redPressed"/>
+    <TextView
+        android:id="@+id/redtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bluetext"
+        android:layout_toRightOf="@id/red"
+        android:text="$50"
+        android:textSize="30dp"/>
+
+
+</RelativeLayout>
