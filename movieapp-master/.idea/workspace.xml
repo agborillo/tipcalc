@@ -34,13 +34,15 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alastair/movieapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="121" column="75" lean-forward="true" selection-start-line="121" selection-start-column="75" selection-end-line="121" selection-end-column="75" />
+            <state relative-caret-position="-714">
+              <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
               <folding>
                 <element signature="e#1714#1938#0" expanded="true" />
                 <element signature="e#1937#1938#0" expanded="true" />
                 <element signature="e#2627#3010#0" expanded="true" />
                 <element signature="e#3009#3010#0" expanded="true" />
+                <element signature="e#3211#3651#0" expanded="true" />
+                <element signature="e#3650#3651#0" expanded="true" />
                 <element signature="e#3954#4286#0" expanded="true" />
                 <element signature="e#4285#4286#0" expanded="true" />
               </folding>
@@ -2262,13 +2264,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alastair/movieapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="121" column="75" lean-forward="true" selection-start-line="121" selection-start-column="75" selection-end-line="121" selection-end-column="75" />
+        <state relative-caret-position="-714">
+          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
           <folding>
             <element signature="e#1714#1938#0" expanded="true" />
             <element signature="e#1937#1938#0" expanded="true" />
             <element signature="e#2627#3010#0" expanded="true" />
             <element signature="e#3009#3010#0" expanded="true" />
+            <element signature="e#3211#3651#0" expanded="true" />
+            <element signature="e#3650#3651#0" expanded="true" />
             <element signature="e#3954#4286#0" expanded="true" />
             <element signature="e#4285#4286#0" expanded="true" />
           </folding>

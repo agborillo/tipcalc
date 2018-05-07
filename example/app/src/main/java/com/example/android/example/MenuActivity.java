@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
         private TextView text2;
@@ -30,17 +31,54 @@ public class MenuActivity extends AppCompatActivity {
         }
 
         public void redPressed(View v){
-            total= total-50;
-            text2.setText("Points: " + total);
-            color = 0xFFFF0000;
-            layout.setBackgroundColor(color);
+            if(total>=50){
+                total= total-50;
+                text2.setText("Points: " + total);
+                color = 0xFFFF0000;
+                layout.setBackgroundColor(color);
+            }
+            else{
+                Toast.makeText(this, "Insufficent funds, MAKE MORE MONEY!", Toast.LENGTH_SHORT).show();
+            }
+
 
         }
     public void bluePressed(View v){
-        total= total-100;
-        text2.setText("Points: " + total);
-        color = 0xFF0000FF;
-        layout.setBackgroundColor(color);
+            if(total>=100){
+                total= total-100;
+                text2.setText("Points: " + total);
+                color = 0xFF0000FF;
+                layout.setBackgroundColor(color);
+            }
+            else{
+                Toast.makeText(this, "Insufficent funds, MAKE MORE MONEY!", Toast.LENGTH_SHORT).show();
+            }
+
+
+    }
+    public void greenPressed(View v){
+            if(total>=150){
+                total= total-150;
+                text2.setText("Points: " + total);
+                color = 0xFF00FF00;
+                layout.setBackgroundColor(color);
+            }
+            else{
+                Toast.makeText(this, "Insufficent funds, MAKE MORE MONEY!", Toast.LENGTH_SHORT).show();
+            }
+
+
+    }
+    public void suprisePressed(View v){
+            if(total>=1000) {
+                total = total - 1000;
+                text2.setText("Points: " + total);
+                color = 0xFF206050;
+                layout.setBackgroundColor(color);
+            }
+            else{
+                Toast.makeText(this, "Insufficent funds, MAKE MORE MONEY!", Toast.LENGTH_SHORT).show();
+            }
 
     }
         @Override

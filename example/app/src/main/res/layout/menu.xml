@@ -54,5 +54,37 @@
         android:text="$50"
         android:textSize="30dp"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/redtext"
+        android:text="Green"
+        android:id="@+id/green"
+        android:onClick="greenPressed"/>
+    <TextView
+        android:id="@+id/greentext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/redtext"
+        android:layout_toRightOf="@id/red"
+        android:text="$150"
+        android:textSize="30dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/greentext"
+        android:text="Surpise"
+        android:id="@+id/suprise"
+        android:onClick="suprisePressed"/>
+    <TextView
+        android:id="@+id/suprisetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/greentext"
+        android:layout_toRightOf="@id/red"
+        android:text="$1000"
+        android:textSize="30dp"/>
+
 
 </RelativeLayout>
