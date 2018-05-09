@@ -3,6 +3,7 @@ package com.example.android.example;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private Button menu;
     private RelativeLayout layout;
     private int color=0xFFFFFFFF;;
+    Drawable d1;
+    Drawable d2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,68 +62,102 @@ public class MainActivity extends AppCompatActivity {
         } catch(IOException e ){
             Toast.makeText(this, "Bad Assets", Toast.LENGTH_LONG).show();
         }
+        if(savedInstanceState != null){
+            money = savedInstanceState.getInt("money");
+            color = savedInstanceState.getInt("color");
+            layout.setBackgroundColor(color);
+            points.setText(savedInstanceState.getString( "points"));
+        }
+    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString("points", points.getText().toString() );
+        savedInstanceState.putInt("money", money);
+        savedInstanceState.putInt("color", color);
+
     }
     public void imagePressed(View v) throws IOException{
-        String betS = bet.getText().toString();
-        int betI = Integer.parseInt(betS);
-        if(betI<=money) {
-            random1 = rand.nextInt(cards.size());
-            image.setImageBitmap(BitmapFactory.decodeStream(getAssets().open(cards.get(random1))));
-            random2 = rand.nextInt(cards2.size());
-            image2.setImageBitmap(BitmapFactory.decodeStream(getAssets().open(cards2.get(random2))));
-            String card1 = cards.get(random1).toString();
-            String card2 = cards2.get(random2).toString();
-            int len = card1.length();
-            int len2 = card2.length();
-            System.out.println(len);
-            System.out.println(len2);
-            if (len > 6) {
-                card1 = card1.substring(0, 2);
-            } else {
-                card1 = card1.substring(0, 1);
-            }
-            if (len2 > 6) {
-                card2 = card2.substring(0, 2);
-            } else {
-                card2 = card2.substring(0, 1);
-            }
-            int Icard1 = Integer.parseInt(card1);
-            int Icard2 = Integer.parseInt(card2);
-            System.out.println(card1);
-            System.out.println(card2);
-
-            money = money - betI;
-            if (under.isChecked()) {
-                if (Icard1 == Icard2) {
-                    Toast.makeText(this, "TIE! Points back", Toast.LENGTH_SHORT).show();
-                    money = money + betI;
-                    points.setText("Points: " + money);
-                } else if (Icard1 > Icard2) {
-                    Toast.makeText(this, "YOU LOSE! Points Lost", Toast.LENGTH_SHORT).show();
-                    points.setText("Points: " + money);
-                } else if (Icard1 < Icard2) {
-                    Toast.makeText(this, "YOU WIN! Points Won", Toast.LENGTH_SHORT).show();
-                    money = money + (betI * 2);
-                    points.setText("Points: " + money);
-                }
-            }
-            if (over.isChecked()) {
-                if (Icard1 == Icard2) {
-                    Toast.makeText(this, "TIE! Points back", Toast.LENGTH_SHORT).show();
-                    money = money + betI;
-                    points.setText("Points: " + money);
-                } else if (Icard1 < Icard2) {
-                    Toast.makeText(this, "YOU LOSE! Points Lost", Toast.LENGTH_SHORT).show();
-                    points.setText("Points: " + money);
-                } else if (Icard1 > Icard2) {
-                    Toast.makeText(this, "YOU WIN! Points Won", Toast.LENGTH_SHORT).show();
-                    money = money + (betI * 2);
-                    points.setText("Points: " + money);
-                }
-            }
+        String check = bet.getText().toString();
+        boolean check2;
+        if(check.length()==0){
+            check2=false;
         }
         else{
-            Toast.makeText(this, "Not enough points, bet less", Toast.LENGTH_SHORT).show();
+            check2=true;
+        }
+        if(check2==false){
+            Toast.makeText(this, "No bet entered", Toast.LENGTH_SHORT).show();
+        }
+        else if(check2==true){
+            String betS = bet.getText().toString();
+            int betI = Integer.parseInt(betS);
+            if(money==0){
+                Intent i = new Intent(this, LoanActivity.class);
+                i.putExtra("points", money);
+                i.putExtra("color", color);
+                startActivityForResult(i, 1);
+            }
+
+            else if(betI<=money) {
+                random1 = rand.nextInt(cards.size());
+                image.setImageBitmap(BitmapFactory.decodeStream(getAssets().open(cards.get(random1))));
+                random2 = rand.nextInt(cards2.size());
+                image2.setImageBitmap(BitmapFactory.decodeStream(getAssets().open(cards2.get(random2))));
+                String card1 = cards.get(random1).toString();
+                String card2 = cards2.get(random2).toString();
+                int len = card1.length();
+                int len2 = card2.length();
+                // System.out.println(len);
+                //System.out.println(len2);
+                if (len > 6) {
+                    card1 = card1.substring(0, 2);
+                } else {
+                    card1 = card1.substring(0, 1);
+                }
+                if (len2 > 6) {
+                    card2 = card2.substring(0, 2);
+                } else {
+                    card2 = card2.substring(0, 1);
+                }
+                int Icard1 = Integer.parseInt(card1);
+                int Icard2 = Integer.parseInt(card2);
+                //System.out.println(card1);
+                //System.out.println(card2);
+
+                money = money - betI;
+                if (under.isChecked()) {
+                    if (Icard1 == Icard2) {
+                        Toast.makeText(this, "TIE! Points back", Toast.LENGTH_SHORT).show();
+                        money = money + betI;
+                        points.setText("Points: " + money);
+                    } else if (Icard1 > Icard2) {
+                        Toast.makeText(this, "YOU LOSE! Points Lost", Toast.LENGTH_SHORT).show();
+                        points.setText("Points: " + money);
+                    } else if (Icard1 < Icard2) {
+                        Toast.makeText(this, "YOU WIN! Points Won", Toast.LENGTH_SHORT).show();
+                        money = money + (betI * 2);
+                        points.setText("Points: " + money);
+                    }
+                }
+                if (over.isChecked()) {
+                    if (Icard1 == Icard2) {
+                        Toast.makeText(this, "TIE! Points back", Toast.LENGTH_SHORT).show();
+                        money = money + betI;
+                        points.setText("Points: " + money);
+                    } else if (Icard1 < Icard2) {
+                        Toast.makeText(this, "YOU LOSE! Points Lost", Toast.LENGTH_SHORT).show();
+                        points.setText("Points: " + money);
+                    } else if (Icard1 > Icard2) {
+                        Toast.makeText(this, "YOU WIN! Points Won", Toast.LENGTH_SHORT).show();
+                        money = money + (betI * 2);
+                        points.setText("Points: " + money);
+                    }
+                }
+            }
+            else{
+                Toast.makeText(this, "Not enough points, bet less", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }

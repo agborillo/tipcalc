@@ -30,11 +30,11 @@ public class MenuActivity extends AppCompatActivity {
 
         }
 
-        public void redPressed(View v){
+        public void yellowPressed(View v){
             if(total>=50){
                 total= total-50;
                 text2.setText("Points: " + total);
-                color = 0xFFFF0000;
+                color = 0xFFfff933;
                 layout.setBackgroundColor(color);
             }
             else{
@@ -47,7 +47,7 @@ public class MenuActivity extends AppCompatActivity {
             if(total>=100){
                 total= total-100;
                 text2.setText("Points: " + total);
-                color = 0xFF0000FF;
+                color = 0xFF33f6ff;
                 layout.setBackgroundColor(color);
             }
             else{
@@ -60,7 +60,7 @@ public class MenuActivity extends AppCompatActivity {
             if(total>=150){
                 total= total-150;
                 text2.setText("Points: " + total);
-                color = 0xFF00FF00;
+                color = 0xFF7aff33;
                 layout.setBackgroundColor(color);
             }
             else{
@@ -69,18 +69,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
     }
-    public void suprisePressed(View v){
-            if(total>=1000) {
-                total = total - 1000;
-                text2.setText("Points: " + total);
-                color = 0xFF206050;
-                layout.setBackgroundColor(color);
-            }
-            else{
-                Toast.makeText(this, "Insufficent funds, MAKE MORE MONEY!", Toast.LENGTH_SHORT).show();
-            }
 
-    }
         @Override
         public void onBackPressed(){
             Intent data = new Intent();

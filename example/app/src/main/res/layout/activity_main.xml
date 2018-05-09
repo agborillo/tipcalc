@@ -107,8 +107,9 @@
         android:id="@+id/menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/roll"
+        android:layout_below="@id/title"
         android:text="Menu"
-        android:onClick="buttonPressed"/>
+        android:onClick="buttonPressed"
+        android:layout_toRightOf="@id/roll"/>
 
 </RelativeLayout>
